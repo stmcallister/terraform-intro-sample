@@ -7,6 +7,18 @@ provider "aws" {
 resource "aws_instance" "demo" {
   ami           = var.ami
   instance_type = var.instance_type
+  tags = {
+    Name = "Hello Devnexus!"
+  }
+}
+
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+resource "aws_instance" "demo2" {
+  ami           = var.ami
+  instance_type = var.instance_type
+  tags = {
+    Name = "Hello Devnexus On the Fly!"
+  }
 }
 
 ## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic
@@ -28,6 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "xx_anomaly_detection" {
   evaluation_periods        = "2"
   threshold_metric_id       = "e1"
   alarm_description         = "This metric monitors ec2 cpu utilization"
+  alarm_actions = [aws_sns_topic.demo.arn]
   insufficient_data_actions = []
 
   metric_query {

@@ -1,6 +1,7 @@
 ## see https://registry.terraform.io/providers/PagerDuty/pagerduty/latest/docs
 provider "pagerduty" {
-  token = "your_api_key_here"
+  # token = "your_api_access_token"
+  # token value taken from the PAGERDUTY_TOKEN environment variable 
 }
 
 ## USERS

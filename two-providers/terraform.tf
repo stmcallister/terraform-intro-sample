@@ -3,7 +3,7 @@ terraform {
     # see https://registry.terraform.io/providers/PagerDuty/pagerduty/2.7.0
     pagerduty = {
       source  = "PagerDuty/pagerduty"
-      version = "2.8.1"
+      version = "2.11.3"
     }
     # see https://registry.terraform.io/providers/hashicorp/aws/4.48.0
     aws = {
